@@ -25,8 +25,7 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/tamimcamp' ;
-// mongodb+srv://mongoDBA:<password>@cluster0.kt2ec.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-// 'mongodb://localhost:27017/tamimcamp'
+
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -53,9 +52,10 @@ app.use(mongoSanitize({
     replaceWith: '_'
 }))
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!' ;
 const sessionConfig = {
     name: 'session',
-    secret: 'thisshouldbeabettersecret!',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -151,8 +151,9 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-app.listen(3000, () => {
-    console.log('Serving on port 3000')
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port: ${port}`)
 })
 
 
