@@ -34,3 +34,13 @@ body {
     color: #333;
     text-shadow: none;
 }
+
+h1,
+.navbar-brand,
+.navbar-nav a {
+    font-family: 'Noto Kufi Arabic', serif;;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+}
+
