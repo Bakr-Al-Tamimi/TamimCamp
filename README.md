@@ -1,4 +1,5 @@
-#About TamimCamp 
+# About TamimCamp 
+
 TamimCamp was built for private educational and training purposes. This project follows from Colt Steele's 2021 web dev course on udemy.
 
 ## Purpose
